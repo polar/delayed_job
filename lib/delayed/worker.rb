@@ -198,6 +198,9 @@ module Delayed
       end
       say "#{job.name} completed after %.4f" % runtime
       return true  # did work
+    rescue SystemExit => down
+      say "#{job.name} forced exit"
+      raise down
     rescue DeserializationError => error
       job.last_error = "{#{error.message}\n#{error.backtrace.join("\n")}"
       failed(job)
