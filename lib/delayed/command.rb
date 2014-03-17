@@ -74,8 +74,6 @@ module Delayed
 
       if @worker_count > 1 && @options[:identifier]
         raise ArgumentError, 'Cannot specify both --number-of-workers and --identifier'
-      elsif @options[:exit_on_zero] && @options[:sleep_delay]
-        raise ArgumentError, "Cannot specify both --sleep-delay and --exit_on_zero"
       elsif @worker_count == 1 && @options[:identifier]
         process_name = "delayed_job.#{@options[:identifier]}"
         run_process(process_name, dir)

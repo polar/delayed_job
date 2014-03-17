@@ -16,7 +16,6 @@ module Delayed
     DEFAULT_DELAY_JOBS       = true
     DEFAULT_QUEUES           = []
     DEFAULT_READ_AHEAD       = 5
-    DEFAULT_EXIT_ON_ZERO     = false
 
     cattr_accessor :min_priority, :max_priority, :max_attempts, :max_run_time,
       :default_priority, :sleep_delay, :logger, :delay_jobs, :queues,
@@ -38,7 +37,6 @@ module Delayed
       self.delay_jobs       = DEFAULT_DELAY_JOBS
       self.queues           = DEFAULT_QUEUES
       self.read_ahead       = DEFAULT_READ_AHEAD
-      self.exit_on_zero     = DEFAULT_EXIT_ON_ZERO
     end
 
     reset
